@@ -18,8 +18,16 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public Produto(String nome, Float preco, Integer quantidade) {
+    public Produto( String nome, Float preco, Integer quantidade) {
         this(null, nome,preco,quantidade);
+    }
+
+    public Produto(String nome,Float preco) {
+        this(nome, preco, 0);
+    }
+
+    public Produto(){
+        this( null,  null, 0);
     }
 
     public String getNome() {
