@@ -1,14 +1,25 @@
 package br.ufjf.dcc196.delbersspedrohpmarques.controledeestoque;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Produto {
+    @PrimaryKey(autoGenerate = true)
+    private Long id;
     private String nome;
     private Float preco;
     private Integer quantidade;
 
-    public Produto(String nome, Float preco, Integer quantidade) {
+    public Produto(Long id, String nome, Float preco, Integer quantidade) {
+        this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
+    }
+
+    public Produto(String nome, Float preco, Integer quantidade) {
+        this(null, nome,preco,quantidade);
     }
 
     public String getNome() {
@@ -33,5 +44,13 @@ public class Produto {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
