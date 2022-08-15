@@ -5,18 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdicionaProduto">
+
     <TextView
         android:id="@+id/textViewNomeProduto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Nome:"
+        android:text="Nome do Produto:"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="43dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="43dp" />
 
     <TextView
         android:id="@+id/textViewPreco"
@@ -45,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNomeProduto" />
 
     <EditText
-        android:id="@+id/preco"
+        android:id="@+id/editPreco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -67,6 +68,6 @@
         android:text="Adicionar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/preco" />
+        app:layout_constraintTop_toBottomOf="@+id/editPreco" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

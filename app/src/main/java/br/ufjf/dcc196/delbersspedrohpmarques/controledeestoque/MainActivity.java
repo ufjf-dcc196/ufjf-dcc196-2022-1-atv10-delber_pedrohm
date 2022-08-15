@@ -11,38 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    /*
-    List<Produto> produtos;
-    private AppDatabase db;
-     */
+
     private RecyclerView recyclerProdutos;
     private ActivityResultLauncher<Intent> launcher;
     private ProdutoAdapter produtoAdapter;
     private ProdutoRepository repo;
+    private TextView textViewTotalPrecoProdutos;
+    private TextView textViewEstoqueItens;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        /*
-        db = AppDatabase.getInstance(getApplicationContext());
-        Produto p1 = db.produtoDao().buscaPorId(1L);
-        System.out.println(p1.getNome());
-        db.produtoDao().excluir(p1);
-        produtos = db.produtoDao().listarTodos();
-        /*
-        produtos = new ArrayList<Produto>(){{
-            add(new Produto( "Halter", 50.00f,10));
-            add(new Produto( "Anilha",45.00f,10));
-            add(new Produto( "Barra", 100f,5));
-        }};
-        */
 
         repo = new ProdutoRepository(getApplicationContext());
 
@@ -50,16 +34,27 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerProdutos.setLayoutManager(layoutManager);
 
+        textViewTotalPrecoProdutos = findViewById(R.id.textViewTotalPrecoProdutos);
+        textViewEstoqueItens = findViewById(R.id.textViewEstoqueItens);
+
+        textViewTotalPrecoProdutos.setText("R$ " + repo.getValorTotalEstoque().toString());
+        textViewEstoqueItens.setText(repo.getItensEstoque().toString());
+
+
         ProdutoAdapter.OnProdutoClickListener listener = new ProdutoAdapter.OnProdutoClickListener() {
             @Override
             public void onProdutoClick(View view, int position) {
                 Produto produto = repo.getProduto(position);
                 produto.setQuantidade(produto.getQuantidade()+1);
+                textViewTotalPrecoProdutos.setText("R$ " + repo.getValorTotalEstoque().toString());
+                textViewEstoqueItens.setText(repo.getItensEstoque().toString());
+                produto.setPreco(produto.getPreco());
                 produtoAdapter.notifyItemChanged(position);
             }
         };
         produtoAdapter = new ProdutoAdapter(repo.getProdutos(),listener);
         recyclerProdutos.setAdapter(produtoAdapter);
+
 
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -70,12 +65,18 @@ public class MainActivity extends AppCompatActivity {
                         extras = result.getData().getExtras();
                         String nome = extras.getString("nome");
                         Float preco = extras.getFloat("preco");
+                        Integer quantidade = extras.getInt("quantidade");
+                        textViewTotalPrecoProdutos.setText("R$ " + repo.getValorTotalEstoque().toString());
+                        textViewEstoqueItens.setText(repo.getItensEstoque().toString());
 
-                        Produto novoProduto = new Produto(nome,preco);
+                        Produto novoProduto = new Produto(nome,preco,quantidade);
                         repo.addProduto(novoProduto);
 
                         produtoAdapter = new ProdutoAdapter(repo.getProdutos(),listener);
                         recyclerProdutos.setAdapter(produtoAdapter);
+
+                        textViewTotalPrecoProdutos.setText("R$ " + repo.getValorTotalEstoque().toString());
+                        textViewEstoqueItens.setText(repo.getItensEstoque().toString());
                     }
                 });
     }
@@ -84,4 +85,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, AdicionaProduto.class);
         launcher.launch(intent);
     }
+
 }

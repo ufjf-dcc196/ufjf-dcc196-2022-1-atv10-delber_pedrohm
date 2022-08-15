@@ -11,7 +11,8 @@ import android.widget.EditText;
 public class AdicionaProduto extends AppCompatActivity {
 
     private String nome;
-    private String preco;
+    private Float preco;
+    private Integer quantidade;
 
     private EditText nomeAvistamento;
     private EditText precoProduto;
@@ -23,17 +24,20 @@ public class AdicionaProduto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adiciona_produto);
         adicionarRegistro = findViewById(R.id.botaoAdicionarProduto);
+
         nomeAvistamento = findViewById(R.id.nomeProduto);
-        precoProduto = findViewById(R.id.preco);
+        precoProduto = findViewById(R.id.editPreco);
 
     }
     public void botaoCriarProduto(View view){
         nome = nomeAvistamento.getText().toString();
-        preco = precoProduto.getText().toString();
+        preco = Float.parseFloat(precoProduto.getText().toString());
+        quantidade = 1;
 
         Intent novoProduto = new Intent();
         novoProduto.putExtra("nome", nome);
         novoProduto.putExtra("preco", preco);
+        novoProduto.putExtra("quantidade", quantidade);
 
         setResult(1, novoProduto);
         finish();

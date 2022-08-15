@@ -8,31 +8,56 @@
 
     <TextView
         android:id="@+id/textViewNome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="186dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
         android:text="TextViewNome"
         android:textSize="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewProdutos"
+        app:layout_constraintEnd_toStartOf="@+id/textPreco"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewProdutos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textPreco"
+        android:layout_width="76dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
         android:text="0"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewNome" />
 
     <TextView
-        android:id="@+id/textViewCategoria"
+        android:id="@+id/textViewQuantidade"
+        android:layout_width="38dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="TextViewQuantidade"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="34dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:text="R$"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/textPreco"
+        app:layout_constraintTop_toTopOf="@+id/textViewNome" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextViewCategoria"
-        android:textStyle="italic"
+        android:text="Quantidade:"
         app:layout_constraintStart_toStartOf="@+id/textViewNome"
         app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

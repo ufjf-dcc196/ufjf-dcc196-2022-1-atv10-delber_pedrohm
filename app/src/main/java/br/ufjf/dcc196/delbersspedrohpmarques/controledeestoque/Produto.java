@@ -3,6 +3,8 @@ package br.ufjf.dcc196.delbersspedrohpmarques.controledeestoque;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.List;
+
 @Entity
 public class Produto {
     @PrimaryKey(autoGenerate = true)
@@ -61,4 +63,5 @@ public class Produto {
     public void setId(Long id) {
         this.id = id;
     }
+
 }
