@@ -14,6 +14,12 @@ import java.util.List;
 public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter
         .ProdutoViewHolder> {
     private List<Produto> produtos;
+    private OnProdutoClickListener listener;
+    
+    public ProdutoAdapter(List<Produto> produtos, OnProdutoClickListener listener) {
+        this.produtos = produtos;
+        this.listener = listener;
+    }
 
     public ProdutoAdapter(List<Produto> produtos) {
         this.produtos = produtos;
@@ -54,6 +60,16 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter
             textViewNome = itemView.findViewById(R.id.textViewNome);
             textViewProdutos = itemView.findViewById(R.id.textViewProdutos);
             textViewCategoria = itemView.findViewById(R.id.textViewCategoria);
+            
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onProdutoClick(v, getAdapterPosition());
+                }
+            });
         }
+    }
+     public interface OnProdutoClickListener{
+        void onProdutoClick(View view, int position);
     }
 }
