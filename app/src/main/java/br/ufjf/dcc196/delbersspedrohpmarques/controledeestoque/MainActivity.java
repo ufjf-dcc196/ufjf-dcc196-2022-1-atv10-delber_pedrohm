@@ -19,7 +19,15 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerProdutos.setLayoutManager(layoutManager);
 
-        produtoAdapter = new ProdutoAdapter(produtos);
+        ProdutoAdapter.OnProdutoClickListener listener = new ProdutoAdapter.OnProdutoClickListener() {
+            @Override
+            public void onProdutoClick(View view, int position) {
+                Produto avistamento = produtos.get(position);
+                avistamento.setQuantidade(avistamento.getQuantidade()+1);
+                produtoAdapter.notifyItemChanged(position);
+            }
+        };
+        produtoAdapter = new ProdutoAdapter(produtos, listener);
         recyclerProdutos.setAdapter(produtoAdapter);
     }
 }
