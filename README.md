@@ -10,7 +10,7 @@ ufjf-dcc196-2022-1-atv10-delber_pedrohm created by GitHub Classroom
 
 ## Objetivo
 
-- Implementar um aplicativo que fazer o controle de estoque de uma loja,
+- Implementar um aplicativo que faz o controle de estoque de uma loja,
 armazena produtos (nome, valor) e a quantidade de itens do produto, e mostrar o total de itens que a loja tem e o valor de mercado do estoque
 
 ## Problema
@@ -23,7 +23,8 @@ armazena produtos (nome, valor) e a quantidade de itens do produto, e mostrar o 
 
 ## Requisitos mínimos
 
-- Armazentar todos os produtos
+- Minimum SDK: API 21: Android 5.0 (Lollipop)
+- Armazenar todos os produtos
 - Apresentar na tela o valor do estoque
 - Apresentar na tela a quantidade de itens do estoque
 - Rolagem dos produtos ao adicionar muitos produtos
