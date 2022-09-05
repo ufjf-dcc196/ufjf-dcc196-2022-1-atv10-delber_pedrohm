@@ -29,6 +29,9 @@ public class ProdutoRepository  {
             valorTotalEstoque+= produto.getPreco()*produto.getQuantidade();
         }
     }
+    public void deleteProduto(int position){
+        produtos.remove(position);
+    }
     public Float getValorTotalEstoque() {
         this.calcularTotalEstoque();
         return valorTotalEstoque;
@@ -50,6 +53,11 @@ public class ProdutoRepository  {
 
     public void addProduto(Produto produto){
         produtos.add(produto);
+    }
+
+    public void editProduto(int position, Float novoPreco, Integer novaQts){
+        produtos.get(position).setPreco(novoPreco);
+        produtos.get(position).setQuantidade(novaQts);
     }
 
     public void removeProduto(Produto produto){
