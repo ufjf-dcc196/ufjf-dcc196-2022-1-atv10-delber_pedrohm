@@ -1,63 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16sp">
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/textViewNome"
-        android:layout_width="186dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextViewNome"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/textPreco"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textPreco"
-        android:layout_width="76dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="24dp"
-        android:text="0"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewNome" />
-
-    <TextView
-        android:id="@+id/textViewQuantidade"
-        android:layout_width="38dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="TextViewQuantidade"
-        android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="34dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="8dp"
-        android:text="R$"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textPreco"
-        app:layout_constraintTop_toTopOf="@+id/textViewNome" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Quantidade:"
-        app:layout_constraintStart_toStartOf="@+id/textViewNome"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+        android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/textViewNome"
+                    android:layout_width="186dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="TextViewNome"
+                    android:textSize="24dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Quantidade:"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        android:id="@+id/textViewQuantidade"
+                        android:layout_width="38dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="TextViewQuantidade"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="34dp"
+                    android:layout_height="49dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="R$"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/textPreco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="0"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/editProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#499c54"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="50px"
+                android:src="@android:drawable/ic_menu_edit"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
