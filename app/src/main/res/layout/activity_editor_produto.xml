@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditorProduto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Editar Preço:"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textEditPrecoAntigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="preco atual:"
+        android:textSize="10sp"/>
+
+    <EditText
+        android:id="@+id/editPrecoNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Editar Quantidade:"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textEditQtsAntigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="quantidade atual:"
+        android:textSize="10sp"/>
+
+    <EditText
+        android:id="@+id/editQtsNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/botaoEditar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#155918"
+        android:layout_gravity="center_horizontal"
+        android:text="Confirmar Alterações" />
+
+    <Button
+        android:id="@+id/botaoDeletar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8f3447"
+        android:layout_gravity="center_horizontal"
+        android:text="Deletar Produto" />
+
+</LinearLayout>
