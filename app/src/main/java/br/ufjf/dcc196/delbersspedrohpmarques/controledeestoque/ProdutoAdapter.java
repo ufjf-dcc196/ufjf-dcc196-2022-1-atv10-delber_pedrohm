@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,14 +53,16 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter
         private TextView textViewNome;
         private TextView textViewPreco;
         private TextView textViewQuantidade;
+        private ImageButton editButton;
 
         public ProdutoViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewNome = itemView.findViewById(R.id.textViewNome);
             textViewPreco = itemView.findViewById(R.id.textPreco);
             textViewQuantidade = itemView.findViewById(R.id.textViewQuantidade);
+            editButton = itemView.findViewById(R.id.editProduto);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onProdutoClick(v, getAdapterPosition());
